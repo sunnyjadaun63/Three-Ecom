@@ -1,11 +1,11 @@
-const { getHome } = require('../controller/Home.contorller')
+const { getHome, createApi } = require('../controller/Home.contorller')
 
 
 const router=require('express').Router()
 
 
 router.get('/get',getHome)
-router.get('/signup',getHome)
+router.post('/create',createApi)
 
 
 module.exports=router
