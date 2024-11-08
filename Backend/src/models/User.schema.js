@@ -9,6 +9,11 @@ const UserSchema=new mongoose.Schema({
     age:{
         type:Number
     },
+    userName:{
+        type:String,
+        
+
+    },
     isDeleted:{
         type:Boolean,
         default:false
