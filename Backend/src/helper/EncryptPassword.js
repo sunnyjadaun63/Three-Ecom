@@ -15,4 +15,23 @@ const encryptPassword = async (password) => {
     console.log("error for encryptpassword: ", error);
   }
 };
-module.exports = encryptPassword;
+
+const deCryptPassword=async(password,HashedPassword)=>{
+
+    try {
+        if(!password){
+            return ""
+        }
+       
+  
+        const hash = await bcrypt.compare(password, HashedPassword);
+
+return hash
+        
+    } catch (error) {
+        console.log('error: ', error);
+
+        
+    }
+}
+module.exports = {encryptPassword,deCryptPassword};

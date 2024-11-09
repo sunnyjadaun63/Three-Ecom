@@ -98,7 +98,7 @@ const getAllUsers=async(req,res)=>{
 
     try {
         // const responseData= await userModel.find()
-        const responseData= await userModel.find({isDeleted:false}).select({createdAt:0,updatedAt:0}) // jo field dikhaana  h unke aage select krke 1 jo nhi dikhaane unke aage 0
+        const responseData= await userModel.find({isDeleted:false}).select({createdAt:0,updatedAt:0,password:0}) // jo field dikhaana  h unke aage select krke 1 jo nhi dikhaane unke aage 0
         // const responseData= await userModel.find().select({createdAt:0,updatedAt:0}) // jo field dikhaana  h unke aage select krke 1 jo nhi dikhaane unke aage 0
         if (!responseData && responseData.length<0){
          return   res.status(404).json({message:"Koi User h nhi dikhaane ko"})
@@ -108,7 +108,7 @@ const getAllUsers=async(req,res)=>{
         
     } catch (error) {
         
-      return  res.status(500).json({message:"Bhadwe Users nahi dikhaunga"})
+      return  res.status(500).json({message:"Bhadwe Users nahi dikhaunga",error})
     }
 }
 
