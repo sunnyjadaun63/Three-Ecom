@@ -6,11 +6,11 @@ const router=require('express').Router()
 
 router.get('/get',getHome)
 router.post('/create',createApi)
-router.get('/getUserbyId/:id',getUserbyId)
-router.put('/update/:id',updateUser)
+router.get('/getUserbyId/:id',authentication,getUserbyId)
+router.put('/update/:id',authentication,updateUser)
 router.get('/getAllUsers',authentication,getAllUsers)
-router.delete('/deleteUser/:id',deleteUser)
-router.delete('/softDeleteUser/:id',softDeleteuser)
+router.delete('/deleteUser/:id',authentication,deleteUser)
+router.delete('/softDeleteUser/:id',authentication,softDeleteuser)
 
 
 module.exports=router
